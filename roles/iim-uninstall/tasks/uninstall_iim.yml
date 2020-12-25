@@ -1,0 +1,30 @@
+---
+
+- name: Is Installation Manager already Installed?
+  stat:
+    path: /var/ibm/InstallationManager/installed.xml
+  register: installed
+     
+- debug:
+    msg: "{% if installed.stat.exists %}Installation Manager is installed{% else %}Installation Manager is NOT installed{% endif %}"
+
+- name: List all Installed Packages installed with the Installation Manager
+  become: yes
+  become_user: root
+  command: ./imcl listInstalledPackages
+  args:
+   chdir: "{{ iim_install_location }}/eclipse/tools" 
+  register: packages
+  when: installed.stat.exists
+
+- name: Uninstall Installation Manager
+  become: yes
+  become_user: root
+  command: ./uninstallc
+  args:
+   chdir: "/var/ibm/InstallationManager/uninstall"
+  register: uninstall
+  when: installed.stat.exists
+
+- debug:
+   msg: "{% if installed.stat.exists %}uninstalling the Installation Manager{% else %}No Action as there is no Installation Manager on this host{% endif %}"

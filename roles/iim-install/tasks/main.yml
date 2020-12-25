@@ -1,0 +1,12 @@
+---
+# tasks file for iim-install
+
+- name: Setup Operating System
+  include_tasks: setup_os.yml
+
+- name: Define vars
+  include_tasks: define_vars.yml
+
+- name: Install IBM Installation Manager
+  include_tasks: install_iim.yml
+  when: not installed.stat.exists

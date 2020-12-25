@@ -1,0 +1,10 @@
+---
+
+tmp_dir: "/opt/IBM/Binaries/iim"
+logs_dir: "/opt/IBM/Binaries/logs"
+iim_install_location: "/opt/IBM/InstallationManager"
+bin_file: "agent.installer.linux.gtk.x86_64_1.9.1002.20200325_1842.zip"
+this_version: "1.9.1002.20200325_1842"
+product_id: "\"id='com.ibm.cic.agent' version='{{ this_version }}'\""
+iim_repository_url: "Use this space to provide the repository URL"
+

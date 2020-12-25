@@ -1,0 +1,6 @@
+---
+# tasks file for iim-uninstall
+
+- include: uninstall_iim.yml
+  tags: 
+    - uninstall-iim

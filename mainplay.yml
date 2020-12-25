@@ -1,0 +1,9 @@
+---
+
+- hosts: standalone
+  ignore_errors: yes
+  vars_files:
+   - group_vars/group_vars.yml
+  roles:
+   - iim-install (comment this if you dont want to install)
+   #- iim-uninstall (uncomment this option when you want to uninstall Installation Manager)

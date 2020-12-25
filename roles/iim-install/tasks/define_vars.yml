@@ -1,0 +1,9 @@
+---
+
+- name: Is Installation Manager already Installed?
+  stat:
+    path: /var/ibm/InstallationManager/installed.xml
+  register: installed
+ 
+- debug:
+    msg: "{% if installed.stat.exists %}Installation Manager is installed{% else %}Installation Manager is NOT installed{% endif %}"
